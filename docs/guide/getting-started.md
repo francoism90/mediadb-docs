@@ -13,108 +13,84 @@
 ::: tip
 
 - [Laravel Sail](https://laravel.com/docs/8.x/sail) is included, providing a Docker compatible development environment.
-- Please consult the provided [configuration example](https://github.com/francoism90/mediadb/tree/master/doc).
+- Please consult the provided [configuration examples](https://github.com/francoism90/mediadb/tree/master/doc).
   :::
 
-## Manual Installation
+## Installation
 
-This section will help you build a basic VuePress documentation site from ground up. If you already have an existing project and would like to keep documentation inside the project, start from Step 3.
+This section will help you setup a basic MediaDB API from ground up.
 
-- **Step 1**: Create and change into a new directory
-
-```bash
-mkdir vuepress-starter
-cd vuepress-starter
-```
-
-- **Step 2**: Initialize your project
-
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+- **Step 1**: Clone the repository
 
 ```bash
-git init
-yarn init
+cd /var/www/html
+git clone git@github.com:francoism90/mediadb.git api
 ```
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="NPM">
+- **Step 2**: Initialize Laravel
 
 ```bash
-git init
-npm init
+cd api
+cp .env.example .env
+vi .env
+composer install
+php artisan key:generate
+php artisan horizon:install
+php artisan telescope:install
+php artisan migrate
+php artisan storage:link
+php artisan scout:create-indexes
+php artisan db:seed
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+::: tip
 
-- **Step 3**: Install VuePress locally
+- Replace `vi` with your favorite editor.
+- Check all configuration files and change them when necessary, especially `.env`, `config/api.php` and `config/filesystems.php`.
+  :::
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+- **Step 3**: Configure Laravel & nginx
 
 ```bash
-yarn add -D vuepress@next
+dd if=/dev/urandom bs=1 count=32 2> /dev/null | xxd -p -c32
+dd if=/dev/urandom bs=1 count=16 2> /dev/null | xxd -p -c32
 ```
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="NPM">
+Update `.env`:
 
 ```bash
-npm install -D vuepress@next
+VOD_URL=https://mediadb.test
+VOD_KEY=d5460ef7a5c2bece2d1b24e0d9959e5ea9beb9dd449080147bdba001e9106793
+VOD_IV=722d4f9191c53d5e934e13719d02cced
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
-
-- **Step 4**: Add some [scripts](https://classic.yarnpkg.com/en/docs/package-json#toc-scripts) to `package.json`
-
-```json
-{
-  "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
-  }
-}
-```
-
-- **Step 5**: Add the default temp and cache directory to `.gitignore` file
+Update `sites/mediadb-vod.conf`:
 
 ```bash
-echo 'node_modules' >> .gitignore
-echo '.temp' >> .gitignore
-echo '.cache' >> .gitignore
+vod_base_url "https://mediadb.test";
+vod_segments_base_url "https://mediadb.test";
+
+vod_secret_key "randomstring-$vod_filepath";
+
+secure_token_encrypt_uri_key d5460ef7a5c2bece2d1b24e0d9959e5ea9beb9dd449080147bdba001e9106793;
+secure_token_encrypt_uri_iv 722d4f9191c53d5e934e13719d02cced;
 ```
 
-- **Step 6**: Create your first document
+- **Step 4**: Import media files (videos, ..) to the library:
 
 ```bash
-mkdir docs
-echo '# Hello VuePress' > docs/README.md
+cd /var/www/html/api
+php artisan video:import /path/to/import
 ```
 
-- **Step 7**: Serve the documentation site in the local server
+::: tip
 
-<CodeGroup>
-  <CodeGroupItem title="YARN" active>
+- Make sure files in the import and destination path are writeable by `http` (running user).
+- Make sure videos can be played in the browser/target device as they aren't being encoded (yet).
+- Make sure there is enough space on the disk to import and process the media.
+- See `app/Console/Commands/Video/ImportCommand.php` for more details.
+  :::
 
-```bash
-yarn docs:dev
-```
+The MediaDB will now start a server at [https://localhost:3000](https://localhost:3000) and [https://mediadb.test/api](https://mediadb.test/api).
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="NPM">
-
-```bash
-npm run docs:dev
-```
-
-  </CodeGroupItem>
-</CodeGroup>
-
-VuePress will start a hot-reloading development server at [http://localhost:8080](http://localhost:8080). When you modify your markdown files, the content in the browser will be auto updated.
-
-By now, you should have a basic but functional VuePress documentation site. Next, learn about the basics of [configuration](./configuration.md) in VuePress.
+By now, you should have a basic but functional MediaDB API. Next, learn about the basics of [configuration](./configuration.md) in MediaDB API.
