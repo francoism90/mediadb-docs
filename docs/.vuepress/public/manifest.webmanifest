@@ -1,6 +1,6 @@
 {
-  "name": "VuePress",
-  "short_name": "VuePress",
+  "name": "MediaDB",
+  "short_name": "MediaDB",
   "description": "Vue-powered Static Site Generator",
   "start_url": "/index.html",
   "display": "standalone",

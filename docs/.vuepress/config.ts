@@ -25,8 +25,8 @@ export default defineUserConfig<DefaultThemeOptions>({
       },
     ],
     ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
-    ['meta', { name: 'application-name', content: 'VuePress' }],
-    ['meta', { name: 'apple-mobile-web-app-title', content: 'VuePress' }],
+    ['meta', { name: 'application-name', content: 'MediaDB' }],
+    ['meta', { name: 'apple-mobile-web-app-title', content: 'MediaDB' }],
     [
       'meta',
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
@@ -52,7 +52,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     '/': {
       lang: 'en-US',
       title: 'MediaDB',
-      description: 'Basic streaming service',
+      description: 'Personal streaming service',
     },
   },
 

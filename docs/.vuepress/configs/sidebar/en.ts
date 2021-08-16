@@ -8,6 +8,7 @@ export const en: SidebarConfig = {
         '/guide/getting-started.md',
         '/guide/configuration.md',
         '/guide/clients.md',
+        '/guide/credits.md',
       ],
     },
   ],

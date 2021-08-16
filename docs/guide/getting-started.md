@@ -9,13 +9,14 @@
 - [PHP 8+](https://www.php.net/)
 - [MariaDB](https://mariadb.org/) or [MySQL](https://www.mysql.com/)
 - [MeiliSearch](https://www.meilisearch.com/)
+- [Supervisor](http://supervisord.org/)
 
 ::: tip
 
 - [Laravel Sail](https://laravel.com/docs/8.x/sail) is included, providing a Docker compatible development environment.
   :::
 
-## Manual Installation
+## Installation
 
 This section will help you setup a basic MediaDB API from ground up.
 
@@ -54,11 +55,6 @@ php artisan db:seed
 
 - **Step 4**: Configure Laravel & nginx
 
-```bash
-dd if=/dev/urandom bs=1 count=32 2> /dev/null | xxd -p -c32
-dd if=/dev/urandom bs=1 count=16 2> /dev/null | xxd -p -c32
-```
-
 Update `.env`:
 
 ```bash
@@ -72,7 +68,6 @@ Update `/etc/nginx/sites/mediadb-vod.conf`:
 ```bash
 vod_base_url "https://mediadb.test";
 vod_segments_base_url "https://mediadb.test";
-
 vod_secret_key "randomstring-$vod_filepath";
 
 secure_token_encrypt_uri_key d5460ef7a5c2bece2d1b24e0d9959e5ea9beb9dd449080147bdba001e9106793;
@@ -81,12 +76,9 @@ secure_token_encrypt_uri_iv 722d4f9191c53d5e934e13719d02cced;
 
 ::: tip
 
-- Make sure files in the import and destination path are writeable by `http` (running user).
-- Make sure videos can be played in the browser/target device as they aren't being encoded (yet).
-- Make sure there is enough space on the disk to import and process the media.
-- See `app/Console/Commands/Video/ImportCommand.php` for more details.
+- One may use `dd if=/dev/urandom bs=1 count=32 2> /dev/null | xxd -p -c32` to generate the `VOD_KEY`/`VOD_IV` keys.
   :::
 
 MediaDB will now listen at [https://localhost:3000](https://localhost:3000) and [https://mediadb.test/api](https://mediadb.test/api).
 
-By now, you should have a basic but functional MediaDB API. Next, learn about the basics of [configuring and usage](./usage.md) of MediaDB.
+By now, you should have a basic but functional MediaDB API. Next, learn about the basics of [configuration and usage](configuration.md) of MediaDB.
