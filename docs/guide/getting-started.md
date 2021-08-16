@@ -15,7 +15,7 @@
 - [Laravel Sail](https://laravel.com/docs/8.x/sail) is included, providing a Docker compatible development environment.
   :::
 
-## Installation
+## Manual Installation
 
 This section will help you setup a basic MediaDB API from ground up.
 
@@ -79,13 +79,6 @@ secure_token_encrypt_uri_key d5460ef7a5c2bece2d1b24e0d9959e5ea9beb9dd449080147bd
 secure_token_encrypt_uri_iv 722d4f9191c53d5e934e13719d02cced;
 ```
 
-- **Step 5**: Import media files (videos, ..) to the library:
-
-```bash
-cd /var/www/html/api
-php artisan video:import /path/to/import
-```
-
 ::: tip
 
 - Make sure files in the import and destination path are writeable by `http` (running user).
@@ -96,4 +89,4 @@ php artisan video:import /path/to/import
 
 MediaDB will now listen at [https://localhost:3000](https://localhost:3000) and [https://mediadb.test/api](https://mediadb.test/api).
 
-By now, you should have a basic but functional MediaDB API. Next, learn about the basics of [configuration](./configuration.md) in MediaDB API.
+By now, you should have a basic but functional MediaDB API. Next, learn about the basics of [configuring and usage](./usage.md) of MediaDB.

@@ -1,9 +1,16 @@
-# Configuration
+# Configuration and Usage
+
+## Importing files
+
+```bash
+cd /var/www/html/api
+php artisan video:import /path/to/import
+```
 
 ## Optimizing
 
 ```bash
-cd /srv/http/mediadb/api
+cd /var/www/html/api
 composer install --optimize-autoloader --no-dev
 php artisan optimize
 ```
