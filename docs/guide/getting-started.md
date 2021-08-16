@@ -8,26 +8,29 @@
 - [FFmpeg](https://www.ffmpeg.org/)
 - [PHP 8+](https://www.php.net/)
 - [MariaDB](https://mariadb.org/) or [MySQL](https://www.mysql.com/)
-- [MeiliSearch](https://www.meilisearch.com/) (Optional)
+- [MeiliSearch](https://www.meilisearch.com/)
 
 ::: tip
 
 - [Laravel Sail](https://laravel.com/docs/8.x/sail) is included, providing a Docker compatible development environment.
-- Please consult the provided [configuration examples](https://github.com/francoism90/mediadb/tree/master/doc).
   :::
 
 ## Installation
 
 This section will help you setup a basic MediaDB API from ground up.
 
-- **Step 1**: Clone the repository
+- **Step 1**: Configure environment
+
+Setup a basic environment using the [given examples](https://github.com/francoism90/mediadb/tree/master/doc).
+
+- **Step 2**: Clone the repository
 
 ```bash
 cd /var/www/html
 git clone git@github.com:francoism90/mediadb.git api
 ```
 
-- **Step 2**: Initialize Laravel
+- **Step 3**: Initialize Laravel
 
 ```bash
 cd api
@@ -49,7 +52,7 @@ php artisan db:seed
 - Check all configuration files and change them when necessary, especially `.env`, `config/api.php` and `config/filesystems.php`.
   :::
 
-- **Step 3**: Configure Laravel & nginx
+- **Step 4**: Configure Laravel & nginx
 
 ```bash
 dd if=/dev/urandom bs=1 count=32 2> /dev/null | xxd -p -c32
@@ -64,7 +67,7 @@ VOD_KEY=d5460ef7a5c2bece2d1b24e0d9959e5ea9beb9dd449080147bdba001e9106793
 VOD_IV=722d4f9191c53d5e934e13719d02cced
 ```
 
-Update `sites/mediadb-vod.conf`:
+Update `/etc/nginx/sites/mediadb-vod.conf`:
 
 ```bash
 vod_base_url "https://mediadb.test";
@@ -76,7 +79,7 @@ secure_token_encrypt_uri_key d5460ef7a5c2bece2d1b24e0d9959e5ea9beb9dd449080147bd
 secure_token_encrypt_uri_iv 722d4f9191c53d5e934e13719d02cced;
 ```
 
-- **Step 4**: Import media files (videos, ..) to the library:
+- **Step 5**: Import media files (videos, ..) to the library:
 
 ```bash
 cd /var/www/html/api
@@ -91,6 +94,6 @@ php artisan video:import /path/to/import
 - See `app/Console/Commands/Video/ImportCommand.php` for more details.
   :::
 
-The MediaDB will now start a server at [https://localhost:3000](https://localhost:3000) and [https://mediadb.test/api](https://mediadb.test/api).
+MediaDB will now listen at [https://localhost:3000](https://localhost:3000) and [https://mediadb.test/api](https://mediadb.test/api).
 
 By now, you should have a basic but functional MediaDB API. Next, learn about the basics of [configuration](./configuration.md) in MediaDB API.
