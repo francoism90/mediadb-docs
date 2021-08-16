@@ -51,8 +51,8 @@ export default defineUserConfig<DefaultThemeOptions>({
   locales: {
     '/': {
       lang: 'en-US',
-      title: 'VuePress',
-      description: 'Vue-powered Static Site Generator',
+      title: 'MediaDB',
+      description: 'Basic streaming service',
     },
   },
 
