@@ -1,0 +1,17 @@
+{
+  "name": "mediadb-docs",
+  "version": "1.0.0",
+  "main": "build/index.ts",
+  "repository": "git@github.com:francoism90/mediadb-docs.git",
+  "author": "francoism90 <francoism90@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@vuepress/plugin-search": "^2.0.0-beta.24",
+    "vuepress": "^2.0.0-beta.23"
+  },
+  "dependencies": {},
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
