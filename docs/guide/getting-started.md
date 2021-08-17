@@ -49,6 +49,7 @@ php artisan db:seed
 
 ::: tip
 
+- Replace `.env.example` with `.env.sail.example` to configure Laravel Sail.
 - Replace `vi` with your favorite editor.
 - Check all configuration files and change them when necessary, especially `.env`, `config/api.php` and `config/filesystems.php`.
   :::
@@ -76,7 +77,7 @@ secure_token_encrypt_uri_iv 722d4f9191c53d5e934e13719d02cced;
 
 ::: tip
 
-- One may use `dd if=/dev/urandom bs=1 count=32 2> /dev/null | xxd -p -c32` to generate the `VOD_KEY`/`VOD_IV` keys.
+- One may use `dd if=/dev/urandom bs=1 count=32 2> /dev/null | xxd -p -c32` to generate the `VOD_KEY`/`VOD_IV` values.
   :::
 
 MediaDB will now listen at [https://localhost:3000](https://localhost:3000) and [https://mediadb.test/api](https://mediadb.test/api).

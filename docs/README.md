@@ -18,8 +18,8 @@ features:
     details: The entire API can be run on your own hardware.
   - title: Android APK
     details: Material designed app build with Quasar + Capacitor.
-  - title: Tags & Favorites
-    details: Organize your collection using tags, favorite & watch lists.
+  - title: Tags & Lists
+    details: Organize your collection using tags, favourite & watch lists.
   - title: RESTful API
     details: Offers a lightweight and scalable web API.
 footer: MIT Licensed | Copyright © 2020-present francoism90
