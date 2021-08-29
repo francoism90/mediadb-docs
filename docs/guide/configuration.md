@@ -1,6 +1,6 @@
 # Configuration and Usage
 
-## Import files
+## Importing Content
 
 ```bash
 cd /var/www/html/api
@@ -26,3 +26,23 @@ php artisan optimize
 ### Modules
 
 [nginx-vod-module](https://github.com/kaltura/nginx-vod-module#performance-recommendations)
+
+## Upgrading
+
+Because there are many breaking changes an upgrade is not that easy. There are many edge cases this guide does not cover. We accept PRs to improve this guide.
+
+### Scout
+
+Recreate (reset) indexes:
+
+```bash
+php artisan scout:create-indexes -r
+```
+
+Force model indexing:
+
+```bash
+php artisan scout:import "App\Models\Tag"
+php artisan scout:import "App\Models\User"
+php artisan scout:import "App\Models\Video"
+```
