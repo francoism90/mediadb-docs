@@ -59,9 +59,9 @@ php artisan db:seed
 Update `.env`:
 
 ```bash
-VOD_URL=https://mediadb.test
-VOD_KEY=d5460ef7a5c2bece2d1b24e0d9959e5ea9beb9dd449080147bdba001e9106793
-VOD_IV=722d4f9191c53d5e934e13719d02cced
+DASH_URL=https://mediadb.test
+DASH_KEY=d5460ef7a5c2bece2d1b24e0d9959e5ea9beb9dd449080147bdba001e9106793
+DASH_IV=722d4f9191c53d5e934e13719d02cced
 ```
 
 Update `/etc/nginx/sites/mediadb-vod.conf`:
@@ -77,7 +77,7 @@ secure_token_encrypt_uri_iv 722d4f9191c53d5e934e13719d02cced;
 
 ::: tip
 
-- One may use `dd if=/dev/urandom bs=1 count=32 2> /dev/null | xxd -p -c32` to generate the `VOD_KEY`/`VOD_IV` values.
+- One may use `dd if=/dev/urandom bs=1 count=32 2> /dev/null | xxd -p -c32` to generate the `DASH_KEY`/`DASH_IV` values.
   :::
 
 MediaDB will now listen at [https://localhost:3000](https://localhost:3000) and [https://mediadb.test/api](https://mediadb.test/api).
