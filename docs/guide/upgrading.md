@@ -9,8 +9,14 @@ cd /var/www/html/api
 git pull
 composer install
 php artisan migrate
+php artisan optimize
 php artisan video:regenerate
 ```
+
+::: tip
+
+Remember to restart services like `nginx` & `supervisor` and flush caches.
+  :::
 
 ### Scout
 
@@ -41,5 +47,5 @@ quasar build
 
 ::: tip
 
-See [mediadb-app](https://github.com/francoism90/mediadb-app) repository for more information.
+Checkout the [mediadb-app](https://github.com/francoism90/mediadb-app) repository for more information.
   :::
