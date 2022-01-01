@@ -11,7 +11,7 @@ composer install
 php artisan migrate
 php artisan optimize
 php artisan scout:create-indexes -r
-php artisan scout:import-models
+php artisan scout:sync
 php artisan video:regenerate
 ```
 
