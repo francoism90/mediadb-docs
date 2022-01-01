@@ -2,8 +2,6 @@
 
 **MediaDB** is a web-based personal streaming service written in Vue.js, Laravel, TypeScript and nginx.
 
-![MediaDB Videos](/mediadb-docs/images/introduction/videos.png)
-
 ## Screenshots
 
 - [Videos](/mediadb-docs/images/introduction/videos.png)
