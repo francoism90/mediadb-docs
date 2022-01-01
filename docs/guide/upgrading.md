@@ -2,7 +2,7 @@
 
 Because there are many breaking changes an upgrade is not that easy. There are many edge cases this guide does not cover. We accept PRs to improve this guide.
 
-## Laravel
+## API
 
 ```bash
 cd /var/www/html/api
@@ -10,33 +10,20 @@ git pull
 composer install
 php artisan migrate
 php artisan optimize
+php artisan scout:create-indexes -r
+php artisan scout:import-models
 php artisan video:regenerate
 ```
 
 ::: tip
 
-Remember to restart services like `nginx` & `supervisor` and flush caches.
+- Remember to restart services like `nginx` & `supervisor` and flush caches.
+- When using [Laravel Octane](https://laravel.com/docs/8.x/octane), execute `php artisan octane:reload` after each upgrade.
   :::
 
-### Scout
+## App
 
-#### Recreate indexes
-
-```bash
-cd /var/www/html/api
-php artisan scout:create-indexes -r
-```
-
-#### Re-index models
-
-```bash
-cd /var/www/html/api
-php artisan scout:import "App\Models\Tag"
-php artisan scout:import "App\Models\User"
-php artisan scout:import "App\Models\Video"
-```
-
-## Quasar
+To update the MediaDB app (including SPA/PWA):
 
 ```bash
 cd /var/www/html/app
@@ -48,4 +35,4 @@ quasar build
 ::: tip
 
 Checkout the [mediadb-app](https://github.com/francoism90/mediadb-app) repository for more information.
-  :::
+:::

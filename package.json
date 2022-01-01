@@ -6,8 +6,8 @@
   "author": "francoism90 <francoism90@users.noreply.github.com>",
   "license": "MIT",
   "devDependencies": {
-    "@vuepress/plugin-search": "^2.0.0-beta.26",
-    "vuepress": "^2.0.0-beta.26"
+    "@vuepress/plugin-search": "^2.0.0-beta.32",
+    "vuepress": "^2.0.0-beta.32"
   },
   "dependencies": {},
   "scripts": {

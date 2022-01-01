@@ -9,11 +9,13 @@
 - [PHP 8+](https://www.php.net/)
 - [MariaDB](https://mariadb.org/) or [MySQL](https://www.mysql.com/)
 - [MeiliSearch](https://www.meilisearch.com/)
+- [Soketi](https://github.com/soketi/soketi)
 - [Supervisor](http://supervisord.org/)
 
 ::: tip
 
 - [Laravel Sail](https://laravel.com/docs/8.x/sail) is included, providing a Docker compatible development environment.
+- [Laravel Octane](https://laravel.com/docs/8.x/octane) is optional, but highly recommended.
   :::
 
 ## Installation
