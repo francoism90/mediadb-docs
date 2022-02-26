@@ -14,8 +14,8 @@
 
 ::: tip
 
-- [Laravel Sail](https://laravel.com/docs/8.x/sail) is included, providing a Docker compatible development environment.
-- [Laravel Octane](https://laravel.com/docs/8.x/octane) is optional, but highly recommended.
+- [Laravel Sail](https://laravel.com/docs/9.x/sail) is included, providing a Docker compatible development environment.
+- [Laravel Octane](https://laravel.com/docs/9.x/octane) is optional, but highly recommended.
   :::
 
 ## Installation
@@ -43,10 +43,9 @@ composer install
 php artisan key:generate
 php artisan horizon:install
 php artisan telescope:install
-php artisan migrate
+php artisan migrate --seed
 php artisan storage:link
 php artisan scout:create-indexes
-php artisan db:seed
 ```
 
 ::: tip

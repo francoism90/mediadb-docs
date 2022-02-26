@@ -10,7 +10,7 @@ git pull
 composer install
 php artisan migrate
 php artisan optimize
-php artisan scout:create-indexes -r
+php artisan scout:create-indexes
 php artisan scout:sync
 php artisan video:regenerate
 ```
@@ -18,7 +18,7 @@ php artisan video:regenerate
 ::: tip
 
 - Remember to restart services like `nginx` & `supervisor` and flush caches.
-- When using [Laravel Octane](https://laravel.com/docs/8.x/octane), execute `php artisan octane:reload` after each upgrade.
+- When using [Laravel Octane](https://laravel.com/docs/9.x/octane), execute `php artisan octane:reload` after each upgrade.
   :::
 
 ## App
