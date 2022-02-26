@@ -1,0 +1,1 @@
+const e={key:"v-051c936b",path:"/guide/credits.html",title:"Credits",lang:"en-US",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1631623095e3,contributors:[{name:"Fran\xE7ois M",email:"francoism90@users.noreply.github.com",commits:1},{name:"francoism90",email:"francoism90@users.noreply.github.com",commits:1}]},filePathRelative:"guide/credits.md"};export{e as data};
