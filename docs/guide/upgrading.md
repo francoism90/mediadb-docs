@@ -18,7 +18,7 @@ php artisan video:regenerate
 ::: tip
 
 - Remember to restart services like `nginx` & `supervisor` and flush caches.
-- When using [Laravel Octane](https://laravel.com/docs/9.x/octane), execute `php artisan octane:reload` after each upgrade.
+- Run `php artisan octane:reload` after each upgrade for [Laravel Octane](https://laravel.com/docs/9.x/octane) to reload.
   :::
 
 ## App

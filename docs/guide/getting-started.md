@@ -3,19 +3,19 @@
 ## Prerequisites
 
 - [nginx](https://nodejs.org/)
-- [nginx-vod-module](https://github.com/kaltura/nginx-vod-module)
 - [nginx-secure-token-module](https://github.com/kaltura/nginx-secure-token-module)
+- [nginx-vod-module](https://github.com/kaltura/nginx-vod-module)
 - [FFmpeg](https://www.ffmpeg.org/)
-- [PHP 8+](https://www.php.net/)
 - [MariaDB](https://mariadb.org/) or [MySQL](https://www.mysql.com/)
 - [MeiliSearch](https://www.meilisearch.com/)
+- [PHP 8+](https://www.php.net/)
 - [Soketi](https://github.com/soketi/soketi)
 - [Supervisor](http://supervisord.org/)
+- [Swoole](https://laravel.com/docs/9.x/octane#swoole)
 
 ::: tip
 
 - [Laravel Sail](https://laravel.com/docs/9.x/sail) is included, providing a Docker compatible development environment.
-- [Laravel Octane](https://laravel.com/docs/9.x/octane) is optional, but highly recommended.
   :::
 
 ## Installation
